@@ -1,155 +1,218 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #000000;
+    color: #333;
+    /* Add the following styles to make the body full screen */
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#image-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#image-container img {
+    /* Make the image full screen and responsive */
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+/* Add the following media queries to ensure responsiveness on different devices */
+
+@media only screen and (max-width: 768px) {
+
+    /* For tablets and mobile devices */
+    #image-container {
+        height: 100vh;
+    }
+
+    #image-container img {
+        height: 100vh;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+
+    /* For smaller mobile devices */
+    #image-container {
+        height: 100vh;
+    }
+
+    #image-container img {
+        height: 100vh;
+    }
+}
+
+
 .spinner {
-  border: 8px solid rgba(0, 0, 0, 0.3);
+    border: 8px solid rgba(0, 0, 0, 0.3);
 }
 
 /* Make the border thicker and more visible */
 .spinner {
-  border: 8px solid rgba(0, 0, 0, 0.3);
+    border: 8px solid rgba(0, 0, 0, 0.3);
 }
 
 /* Make the border thicker and more visible */
 .spinner {
-  border: 8px solid rgba(0, 0, 0, 0.3);
-  /* Make the border thicker and more visible */
-  border-top-color: #09f;
-  /* Color only the top border for a single-color spinner */
-  border-radius: 50%;
-  width: 80px;
-  /* Increase the size of the spinner */
-  height: 80px;
-  position: fixed;
-  /* Use fixed to keep it in view even when scrolling */
-  top: 50%;
-  /* Position at the center of the viewport vertically */
-  left: 50%;
-  /* Position at the center of the viewport horizontally */
-  transform: translate(-50%, -50%);
-  /* Offset the spinner to truly center based on its own size */
-  animation: spin 1s infinite linear;
-  z-index: 1000;
-  /* Ensure it's above other content */
+    border: 8px solid rgba(0, 0, 0, 0.3);
+    /* Make the border thicker and more visible */
+    border-top-color: #09f;
+    /* Color only the top border for a single-color spinner */
+    border-radius: 50%;
+    width: 80px;
+    /* Increase the size of the spinner */
+    height: 80px;
+    position: fixed;
+    /* Use fixed to keep it in view even when scrolling */
+    top: 50%;
+    /* Position at the center of the viewport vertically */
+    left: 50%;
+    /* Position at the center of the viewport horizontally */
+    transform: translate(-50%, -50%);
+    /* Offset the spinner to truly center based on its own size */
+    animation: spin 1s infinite linear;
+    z-index: 1000;
+    /* Ensure it's above other content */
 }
 
 @keyframes spin {
-  0% {
-    transform: translate(-50%, -50%) rotate(0deg);
-  }
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
 
-  100% {
-    transform: translate(-50%, -50%) rotate(360deg);
-  }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
 }
 
 /* Hide spinner initially */
 .hidden {
-  display: none;
+    display: none;
 }
 
 #timer-info {
-  margin-left: 10px;
-  color: red;
-  font-weight: bold;
+    margin-left: 10px;
+    color: red;
+    font-weight: bold;
 }
 
 /* Style adjustments for the body and overall font */
 body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #000000;
-  color: #333;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #000000;
+    color: #333;
 }
 
 /* Styling the menu bar */
 #form-container {
-  position: relative;
-  /* Positioned over the image */
-  z-index: 10;
-  /* Above the image */
-  background-color: transparent;
-  /* Dark background for the menu bar */
-  padding: 10px 10px 10px 5px;
-  /* Padding around the content in the bar */
-  display: flex;
-  /* Flexbox to align items in a row */
-  align-items: center;
-  /* Center items vertically */
-  justify-content: space-around;
-  /* Distribute space around items */
-  width: 100%;
-  /* Full width */
+    position: absolute;
+    /* Positioned over the image */
+    z-index: 10;
+    /* Above the image */
+    background-color: transparent;
+    /* Dark background for the menu bar */
+    padding: 10px 10px 10px 5px;
+    /* Padding around the content in the bar */
+    display: flex;
+    /* Flexbox to align items in a row */
+    align-items: center;
+    /* Center items vertically */
+    justify-content: space-around;
+    /* Distribute space around items */
+    width: 100%;
+    /* Full width */
 }
 
 /* Inputs and button styling */
 #prompt-input,
 #submit-btn {
-  padding: 8px 12px;
-  font-size: 16px;
-  margin-right: 10px;
-  /* Space between input and button */
-  border: none;
-  border-radius: 5px;
-  color: #eeeeee;
+    padding: 8px 12px;
+    font-size: 16px;
+    margin-right: 10px;
+    border: 1px solid #FFFFFF;
+    border-radius: 5px;
+    color: #eeeeee;
+    background-color: #333;
 }
 
 #prompt-input {
-  flex-grow: 1;
-  /* Input takes more space */
-  background-color: rgba(255, 255, 255, 0.1);
+    flex-grow: 1;
+    /* Input takes more space */
+    background-color: rgba(255, 255, 255, 0.1);
+    margin: 10px
+
 }
 
 #submit-btn {
     background-color: rgba(255, 255, 255, 0.1);
     color: #eeeeee;
-  cursor: pointer;
-  border: none;
+    cursor: pointer;
+    border: none;
+    border: 1px solid #FFFFFF;
+    border-radius: 5px;
+    margin: 10px;
 }
 
 /* Adjustments for how the images are displayed */
 
 #image-container img {
-  /* Fullscreen and cover the container */
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 100%;
-  height: 100%;
-  transform: translate(-50%, -50%);
-  transition: transform 3s ease-out;
-  animation: zoomAndPan 60s infinite alternate;
-}
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100vh;
+    transform: translate(-50%, -50%);
+    transition: transform 3s ease-out;
+    animation: zoomAndPan 60s infinite alternate;
+    z-index: -1;
+} 
+
+
 
 @keyframes zoomAndPan {
-  0% {
-    transform: translate(-50%, -50%) scale(1);
-  }
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+    }
 
-  50% {
-    transform: translate(-45%, -55%) scale(1.1);
-  }
+    50% {
+        transform: translate(-45%, -55%) scale(1.1);
+    }
 
-  100% {
-    transform: translate(-55%, -45%) scale(1.2);
-  }
+    100% {
+        transform: translate(-55%, -45%) scale(1.2);
+    }
 }
 
 img {
-  max-width: auto;
-  /* Limit image size */
-  height: 100%;
-  /* Maintain aspect ratio */
-  width: 100%;
+    max-width: auto;
+    /* Limit image size */
+    height: 100%;
+    /* Maintain aspect ratio */
+    width: 100%;
 }
 
 #download-btn {
-  display: inline-block;
-  /* Ensure it is not set to display:none unless hidden */
-  padding: 10px;
-  background-color: transparent;
-  color: white;
-  text-decoration: none;
-  border-radius: 5px;
-  cursor: pointer;
-  /* Ensure it looks clickable */
+    display: inline-block;
+    /* Ensure it is not set to display:none unless hidden */
+    padding: 10px;
+    background-color: transparent;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+    /* Ensure it looks clickable */
 }
 
 
@@ -164,21 +227,23 @@ img {
     text-align: center;
     animation: fadeOut 20s forwards;
     animation-delay: 1s;
-    background-color: rgba(56, 54, 54, 0.5); /* Red background with 50% transparency */
+    background-color: rgba(56, 54, 54, 0.5);
+    /* Red background with 50% transparency */
     padding: 20px;
     border-radius: 10px;
     margin-top: 200px;
-  }
-  
-  #error-message:empty {
-    display: none;
-  }
+}
 
-  @keyframes fadeOut {
+#error-message:empty {
+    display: none;
+}
+
+@keyframes fadeOut {
     0% {
-      opacity: 1;
+        opacity: 1;
     }
+
     100% {
-      opacity: 0;
+        opacity: 0;
     }
-  }
+}
