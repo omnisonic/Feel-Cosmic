@@ -74,7 +74,6 @@ def proxy_image(image_url):
 
 @app.route('/proxy-image-file/<token>/<filename>')
 def proxy_image_file(token, filename):
-    # Removed **kwargs
     if not filename:
         abort(404)
     image_url = image_url_token_map.pop(token)

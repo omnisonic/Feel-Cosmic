@@ -38,3 +38,5 @@ flask_session/
 
 # OpenAI API key file (if you're using the OpenAI API)
 openai_api_key.txt
+
+sandbox_files/
