@@ -18,7 +18,7 @@ app.config['SESSION_COOKIE_SAMESITE'] = 'None'
 app.config['SESSION_COOKIE_SECURE'] = True
 app.secret_key = 'your_secret_key_here'
 
-IMAGE_GENERATION_RATE_LIMIT = 1  # 1 image generation per day
+IMAGE_GENERATION_RATE_LIMIT = 50  # 1 image generation per day
 IMAGE_GENERATION_RATE_LIMIT_WINDOW = timedelta(days=1)
 
 image_generation_tokens = {}

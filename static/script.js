@@ -1,6 +1,10 @@
 htmx.config.debug = true; // Enable debug mode for this specific event handler
 document.addEventListener('DOMContentLoaded', function () {
-
+    const cachedImage = localStorage.getItem('cachedImage');
+    if (cachedImage) {
+      document.getElementById('myImage').src = cachedImage;
+    }
+  
     const form = document.getElementById('image-form');
     const imageContainer = document.getElementById('image-container');
     const spinner = document.getElementById('spinner');
@@ -16,11 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // IMAGE CONTAINER
 
-// Retrieve the cached image on page load
-const cachedImage = localStorage.getItem('cachedImage');
-if (cachedImage) {
-  document.getElementById('myImage').src = cachedImage;
-}
+
 
 document.body.addEventListener('htmx:afterRequest', function (event) {
     console.log('htmx:afterRequest event triggered!');
@@ -30,7 +30,11 @@ document.body.addEventListener('htmx:afterRequest', function (event) {
       const jsonData = JSON.parse(response);
       if (jsonData && jsonData.imageUrl) {
         const imageUrl = jsonData.imageUrl;
-        updateImageContainer(imageUrl); // Update the image container with the new image URL
+        const img = updateImageContainer(imageUrl); // Update the image container with the new image URL
+        // Add an event listener to detect when the image has finished loading
+        img.addEventListener('load', function () {
+          spinner.classList.add('hidden'); // Hide the spinner only after the image has finished loading
+        });
       } else if (jsonData && jsonData.error && jsonData.error === "Image generation rate limit exceeded. Please try again tomorrow.") {
         // Display the 429 error message
         const errorMessageElement = document.getElementById('error-message');
@@ -39,6 +43,7 @@ document.body.addEventListener('htmx:afterRequest', function (event) {
         setTimeout(() => {
           errorMessageElement.textContent = '';
         }, 10000);
+        spinner.classList.add('hidden'); // Hide the spinner immediately for error cases
       } else if (jsonData && jsonData.error) {
         // Display the error message
         const errorMessageElement = document.getElementById('error-message');
@@ -47,22 +52,29 @@ document.body.addEventListener('htmx:afterRequest', function (event) {
         setTimeout(() => {
           errorMessageElement.textContent = '';
         }, 10000);
+        spinner.classList.add('hidden'); // Hide the spinner immediately for error cases
       }
     } catch (error) {
       console.error('Error parsing JSON response', error);
       const errorMessageElement = document.getElementById('error-message');
       errorMessageElement.textContent = 'Error parsing JSON response';
+      spinner.classList.add('hidden'); // Hide the spinner immediately for error cases
     }
-    spinner.classList.add('hidden');
   });
 
 
-
-    function updateImageContainer(imageUrl) {
-        const img = document.createElement('img');
-        img.src = imageUrl;
-        imageContainer.innerHTML = '';  // Clear the container
-        imageContainer.appendChild(img);  // Add the new image to the container
+// Update the updateImageContainer function to return the img element
+function updateImageContainer(imageUrl) {
+    const img = document.createElement('img');
+    localStorage.removeItem('cachedImage');
+  
+    img.src = imageUrl;
+    imageContainer.innerHTML = '';  // Clear the container
+    imageContainer.appendChild(img);  // Add the new image to the container
+    localStorage.setItem('cachedImage', imageUrl); // Cache the new image URL in localStorage
+  
+    return img; // Return the img element
+        console.log('Image URL cached in localStorage, updateImageContainer');
     }
 
     // // Check if there is a cached image URL and update elements download link

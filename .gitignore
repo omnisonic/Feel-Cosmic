@@ -40,3 +40,6 @@ flask_session/
 openai_api_key.txt
 
 sandbox_files/
+
+
+*.un~
