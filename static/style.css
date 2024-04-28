@@ -14,6 +14,9 @@ body {
     width: 100%;
     height: 100vh;
     overflow: hidden;
+    display: flex; /* Add this to center the image horizontally */
+    justify-content: center; /* Add this to center the image horizontally */
+    align-items: center; /* Add this to center the image vertically */
 }
 
 #image-container img {
@@ -22,8 +25,10 @@ body {
     height: 100vh;
     object-fit: cover;
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 50%; /* Change top to 50% to center the image vertically */
+    left: 50%; /* Change left to 50% to center the image horizontally */
+    transform: translate(-50%, -50%); /* Add this to center the image */
+    z-index: -1;
     z-index: -1;
 }
 
