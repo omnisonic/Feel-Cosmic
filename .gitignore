@@ -1,0 +1,40 @@
+# Python files
+__pycache__/
+*.pyc
+
+# Virtual environment
+venv/
+env/
+*.env
+
+# Flask debug files
+*.sqlite
+*.db
+
+# Static files (if you're using Flask's built-in static file serving)
+static/
+
+# Templates (if you're using Jinja2 templates)
+templates/
+
+# Logs
+logs/
+*.log
+
+# Cache files
+*.cache
+
+# IDE files
+.vscode/
+.idea/
+pycharm/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Flask's internal files
+flask_session/
+
+# OpenAI API key file (if you're using the OpenAI API)
+openai_api_key.txt

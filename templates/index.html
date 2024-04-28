@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Image Generator</title>
+    <script src="https://unpkg.com/htmx.org/dist/htmx.min.js"></script>
+
+    <!-- add style link with flask tempating -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+ <!-- add script, link with flask, tempating -->
+ <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+
+    <div id="form-container">
+        <div id="error-message"></div>
+
+        <form id="image-form" hx-post="/" hx-target="#image-container">
+            <input id="prompt-input" type="text" name="prompt" placeholder="Type in How You are Feeling" required>
+            <button id="submit-btn" type="submit">Click For Your Response</button>
+            <span id="timer-info" hidden></span>
+
+
+        </form>
+        <!-- <button id="download-btn">Download Image</button>
+        <button id="save-as-btn">Save Image</button> -->
+
+
+
+    </div>
+
+
+    <div id="image-container">
+        <!-- This is where the generated images will appear -->
+        //add image here
+        <img id="myImage" src="" alt="Generated Image">
+    </div>
+
+    <div id="spinner" class="spinner hidden"></div>
+
+    <!-- add script, link with flask, tempating -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <!-- <script src="{{ url_for('static', filename='ratelimit.js') }}"></script> -->
+
+
+
+    
+    <!-- <script>
+        // dom content loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            const image = document.getElementById('image');
+            console.log("new button script: " + image);
+            const saveAsBtn = document.getElementById('save-as-btn');
+            
+            saveAsBtn.addEventListener('click', async (e) => {
+  const imageBlob = await fetch(image.src).then(response => response.blob());
+  const imageBlobURL = URL.createObjectURL(new Blob([imageBlob], { type: 'image/jpeg' }));
+  const link = document.createElement('a');
+  link.href = imageBlobURL;
+  link.download = 'image.jpg';
+  link.click();
+});
+      });
+    </script> -->
+
+
+</body>
+
+</html>

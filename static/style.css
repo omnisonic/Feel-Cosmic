@@ -1,0 +1,184 @@
+.spinner {
+  border: 8px solid rgba(0, 0, 0, 0.3);
+}
+
+/* Make the border thicker and more visible */
+.spinner {
+  border: 8px solid rgba(0, 0, 0, 0.3);
+}
+
+/* Make the border thicker and more visible */
+.spinner {
+  border: 8px solid rgba(0, 0, 0, 0.3);
+  /* Make the border thicker and more visible */
+  border-top-color: #09f;
+  /* Color only the top border for a single-color spinner */
+  border-radius: 50%;
+  width: 80px;
+  /* Increase the size of the spinner */
+  height: 80px;
+  position: fixed;
+  /* Use fixed to keep it in view even when scrolling */
+  top: 50%;
+  /* Position at the center of the viewport vertically */
+  left: 50%;
+  /* Position at the center of the viewport horizontally */
+  transform: translate(-50%, -50%);
+  /* Offset the spinner to truly center based on its own size */
+  animation: spin 1s infinite linear;
+  z-index: 1000;
+  /* Ensure it's above other content */
+}
+
+@keyframes spin {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+/* Hide spinner initially */
+.hidden {
+  display: none;
+}
+
+#timer-info {
+  margin-left: 10px;
+  color: red;
+  font-weight: bold;
+}
+
+/* Style adjustments for the body and overall font */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #000000;
+  color: #333;
+}
+
+/* Styling the menu bar */
+#form-container {
+  position: relative;
+  /* Positioned over the image */
+  z-index: 10;
+  /* Above the image */
+  background-color: transparent;
+  /* Dark background for the menu bar */
+  padding: 10px 10px 10px 5px;
+  /* Padding around the content in the bar */
+  display: flex;
+  /* Flexbox to align items in a row */
+  align-items: center;
+  /* Center items vertically */
+  justify-content: space-around;
+  /* Distribute space around items */
+  width: 100%;
+  /* Full width */
+}
+
+/* Inputs and button styling */
+#prompt-input,
+#submit-btn {
+  padding: 8px 12px;
+  font-size: 16px;
+  margin-right: 10px;
+  /* Space between input and button */
+  border: none;
+  border-radius: 5px;
+  color: #eeeeee;
+}
+
+#prompt-input {
+  flex-grow: 1;
+  /* Input takes more space */
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+#submit-btn {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #eeeeee;
+  cursor: pointer;
+  border: none;
+}
+
+/* Adjustments for how the images are displayed */
+
+#image-container img {
+  /* Fullscreen and cover the container */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  transform: translate(-50%, -50%);
+  transition: transform 3s ease-out;
+  animation: zoomAndPan 60s infinite alternate;
+}
+
+@keyframes zoomAndPan {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  50% {
+    transform: translate(-45%, -55%) scale(1.1);
+  }
+
+  100% {
+    transform: translate(-55%, -45%) scale(1.2);
+  }
+}
+
+img {
+  max-width: auto;
+  /* Limit image size */
+  height: 100%;
+  /* Maintain aspect ratio */
+  width: 100%;
+}
+
+#download-btn {
+  display: inline-block;
+  /* Ensure it is not set to display:none unless hidden */
+  padding: 10px;
+  background-color: transparent;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  cursor: pointer;
+  /* Ensure it looks clickable */
+}
+
+
+#error-message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 36px;
+    font-weight: bold;
+    color: #FFFFFF;
+    text-align: center;
+    animation: fadeOut 20s forwards;
+    animation-delay: 1s;
+    background-color: rgba(56, 54, 54, 0.5); /* Red background with 50% transparency */
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 200px;
+  }
+  
+  #error-message:empty {
+    display: none;
+  }
+
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
