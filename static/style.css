@@ -166,28 +166,29 @@ body {
     padding: 8px 12px;
     font-size: 16px;
     margin-right: 10px;
-    border: 1px solid #FFFFFF;
-    border-radius: 5px;
+
     color: #eeeeee;
     background-color: #333;
 }
 
 #prompt-input {
-    flex-grow: 1;
+    /* flex-grow: 1; */
     /* Input takes more space */
-    background-color: rgba(255, 255, 255, 0.1);
-    margin: 10px
+    background-color: rgba(0, 0, 0, 0.2);
+    margin-bottom: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
 
 }
 
 #submit-btn {
-    background-color: rgba(255, 255, 255, 0.1);
-    color: #eeeeee;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: #eeeeeead;
     cursor: pointer;
     border: none;
-    border: 1px solid #FFFFFF;
+    border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 5px;
-    margin: 10px;
+    /* margin: 10px; */
 }
 
 /* Adjustments for how the images are displayed */
